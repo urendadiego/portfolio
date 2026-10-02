@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diego Urenda · Desarrollo de software</title>
+<meta name="description" content="Software a medida para negocios reales: Warma, Nexo Delmar, Caldera Care y Monix.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F6F9; --surface:#FFFFFF; --sunken:#E9EEF4; --line:#C6D0DE; --line-strong:#8C9BB2;
+  --text:#0E1A2C; --muted:#46566F; --accent:#A65A0C; --accent-soft:#F2A541; --accent-ink:#FFFFFF;
+  --plan:#9AAAC2; --heat:#D9822B;
+  --sans:'IBM Plex Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1424; --surface:#111D31; --sunken:#0E192B; --line:#24344F; --line-strong:#3B4F6E;
+    --text:#E8EEF6; --muted:#9FB0C8; --accent:#F2A541; --accent-soft:#F2A541; --accent-ink:#0B1424;
+    --plan:#3B4F6E; --heat:#F2A541;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1424; --surface:#111D31; --sunken:#0E192B; --line:#24344F; --line-strong:#3B4F6E;
+  --text:#E8EEF6; --muted:#9FB0C8; --accent:#F2A541; --accent-soft:#F2A541; --accent-ink:#0B1424;
+  --plan:#3B4F6E; --heat:#F2A541;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3,h4{line-height:1.15;margin:0;font-weight:600}
+p{margin:0}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:1rem;top:1rem;background:var(--surface);padding:.5rem 1rem;z-index:10}
+
+/* Header */
+.top{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;gap:1rem;flex-wrap:wrap}
+.top .me{font-weight:600;text-decoration:none;color:var(--text)}
+.top nav{display:flex;gap:1.25rem;flex-wrap:wrap}
+.top nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+.top nav a:hover{color:var(--text)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:3rem;align-items:center;padding:3.5rem 0 4.5rem}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);letter-spacing:-.02em;max-width:14ch}
+.hero .lead{margin-top:1.25rem;color:var(--muted);max-width:46ch;font-size:1.125rem}
+.ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:.6rem 1.15rem;border-radius:6px;font-weight:500;text-decoration:none;border:1px solid var(--line-strong);color:var(--text);background:transparent}
+.btn:hover{border-color:var(--text)}
+.btn.primary{background:var(--accent-soft);border-color:var(--accent-soft);color:#0B1424}
+.btn.primary:hover{filter:brightness(1.06)}
+.plan{width:100%;height:auto;display:block}
+.plan .wall{stroke:var(--plan);fill:none;stroke-width:2}
+.plan .thin{stroke:var(--plan);fill:none;stroke-width:1}
+.plan .lbl{fill:var(--plan);font-family:var(--mono);font-size:11px}
+.plan .heat{stroke:var(--heat);fill:none;stroke-linecap:round;stroke-linejoin:round}
+.plan .circuit{stroke-dasharray:6200;stroke-dashoffset:6200;animation:draw 3.2s .4s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion: reduce){.plan .circuit{animation:none;stroke-dashoffset:0}html{scroll-behavior:auto}}
+.plan-caption{margin-top:.75rem;color:var(--muted);font-size:.9rem}
+
+/* Sections */
+section{padding:4.5rem 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.sec-head h2{font-size:clamp(1.6rem,3vw,2.1rem);letter-spacing:-.01em}
+.sec-head p{color:var(--muted);max-width:48ch}
+
+/* Project */
+.project{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2.5rem;padding:2.5rem 0;border-bottom:1px solid var(--line)}
+.project:last-of-type{border-bottom:0}
+.project h3{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.015em}
+.project .hook{margin-top:.75rem;font-size:1.15rem;max-width:40ch}
+.project .summary{margin-top:1rem;color:var(--muted);max-width:52ch}
+.result{display:flex;flex-wrap:wrap;gap:2rem;margin-top:1.5rem}
+.result div{display:flex;flex-direction:column}
+.result strong{font-size:1.5rem;font-weight:600;color:var(--accent)}
+.result span{font-size:.9rem;color:var(--muted)}
+
+/* Title block (cartouche de plano) */
+.cartouche{border:1.5px solid var(--line-strong);background:var(--surface);font-size:.92rem;align-self:start}
+.cartouche .row{display:grid;grid-template-columns:7.5rem minmax(0,1fr);border-top:1px solid var(--line)}
+.cartouche .row:first-child{border-top:0}
+.cartouche dt{padding:.6rem .8rem;color:var(--muted);border-right:1px solid var(--line)}
+.cartouche dd{margin:0;padding:.6rem .8rem}
+.cartouche .stack{font-family:var(--mono);font-size:.84rem;line-height:1.55}
+.status{display:inline-flex;align-items:center;gap:.45rem}
+.status::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:#3FAE6A}
+.status.team::before{background:var(--accent-soft)}
+
+/* Architecture flow */
+.flow{margin-top:1rem;border:1px dashed var(--line-strong);padding:1rem;background:var(--sunken)}
+.flow-title{font-size:.85rem;color:var(--muted);margin-bottom:.75rem}
+.flow ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.5rem}
+.flow li{display:grid;grid-template-columns:minmax(0,1fr);border:1px solid var(--line);background:var(--surface);padding:.55rem .75rem;position:relative}
+.flow li + li{margin-top:.6rem}
+.flow li + li::before{content:"";position:absolute;left:1.2rem;top:-1.15rem;height:1.1rem;border-left:1.5px solid var(--heat)}
+.flow b{font-weight:600;font-size:.95rem}
+.flow small{color:var(--muted);font-size:.85rem}
+.links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.private{font-size:.88rem;color:var(--muted);margin-top:1rem}
+
+/* Case study */
+details.case{grid-column:1 / -1;border:1px solid var(--line);background:var(--surface)}
+details.case summary{cursor:pointer;list-style:none;padding:1rem 1.25rem;min-height:44px;display:flex;justify-content:space-between;align-items:center;font-weight:500}
+details.case summary::-webkit-details-marker{display:none}
+details.case summary::after{content:"+";font-size:1.4rem;color:var(--accent);line-height:1}
+details.case[open] summary::after{content:"−"}
+details.case[open] summary{border-bottom:1px solid var(--line)}
+.case-body{padding:1.5rem 1.25rem 2rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
+.case-body h4{font-size:1rem;margin-bottom:.6rem}
+.case-body p,.case-body li{color:var(--muted);font-size:.98rem}
+.case-body ul{margin:0;padding-left:1.1rem}
+.case-body li + li{margin-top:.45rem}
+.case-body li b{color:var(--text);font-weight:500}
+.case-body .full{grid-column:1 / -1}
+
+/* Tools */
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.tool{padding:1.25rem 1.25rem 1.25rem 0;border-bottom:1px solid var(--line)}
+.tool:nth-child(odd){border-right:1px solid var(--line)}
+.tool:nth-child(even){padding-left:1.25rem}
+.tool h3{font-size:1.1rem}
+.tool p{color:var(--muted);margin-top:.35rem;font-size:.97rem}
+.tool .tech{font-family:var(--mono);font-size:.82rem;color:var(--muted);margin-top:.5rem}
+
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:3rem}
+.about p + p{margin-top:1rem}
+.about .muted{color:var(--muted)}
+.skills dl{margin:0}
+.skills .row{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:1rem;padding:.65rem 0;border-bottom:1px solid var(--line)}
+.skills dt{color:var(--muted)}
+.skills dd{margin:0}
+
+/* Contact */
+.contact{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+.contact h2{font-size:clamp(1.6rem,3vw,2.1rem);max-width:20ch}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+
+@media (max-width: 860px){
+  .hero,.project,.about{grid-template-columns:minmax(0,1fr)}
+  .hero{padding-top:2rem;gap:2rem}
+  .case-body{grid-template-columns:minmax(0,1fr)}
+  .tools{grid-template-columns:minmax(0,1fr)}
+  .tool:nth-child(odd){border-right:0}
+  .tool:nth-child(even){padding-left:0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#proyectos">Ir a los proyectos</a>
+
+<div class="wrap">
+  <header class="top">
+    <a class="me" href="#">Diego Urenda</a>
+    <nav aria-label="Secciones">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#herramientas">Herramientas</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>Software a medida para problemas reales</h1>
+      <p class="lead">Trabajo en una empresa de calefacción, entre la venta técnica, los datos y el desarrollo. Veo dónde se pierde tiempo y lo convierto en herramientas que el equipo usa todos los días.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#proyectos">Ver proyectos</a>
+        <a class="btn" href="[URL DE TU LINKEDIN]">LinkedIn</a>
+        <a class="btn" href="https://github.com/urendadiego">GitHub</a>
+        <a class="btn" href="mailto:[TU EMAIL]">Escribirme</a>
+      </div>
+    </div>
+    <figure style="margin:0">
+      <svg class="plan" viewBox="0 0 560 360" role="img" aria-label="Plano de una vivienda con radiadores y un circuito de losa radiante">
+        <rect class="wall" x="20" y="24" width="520" height="316"/>
+        <path class="wall" d="M200 24 V150 M200 210 V340 M20 160 H200 M380 24 V200 M200 200 H430 M480 200 H540"/>
+        <path class="thin" d="M200 150 A60 60 0 0 1 260 210 M430 200 A50 50 0 0 1 480 150" stroke-dasharray="3 4"/>
+        <path class="thin" d="M70 20 H150 M70 28 H150 M260 20 H340 M260 28 H340 M536 240 V310 M544 240 V310"/>
+        <path class="thin" d="M20 8 H200 M200 8 H540 M20 3 V13 M200 3 V13 M540 3 V13"/>
+        <text class="lbl" x="98" y="4">4.50</text>
+        <text class="lbl" x="355" y="4">8.60</text>
+        <text class="lbl" x="80" y="100">Estar</text>
+        <text class="lbl" x="265" y="100">Cocina</text>
+        <text class="lbl" x="420" y="100">Dormitorio</text>
+        <text class="lbl" x="88" y="255">Baño</text>
+        <g class="heat">
+          <rect x="45" y="34" width="110" height="14" stroke-width="1.6"/>
+          <path d="M56 34 V48 M67 34 V48 M78 34 V48 M89 34 V48 M100 34 V48 M111 34 V48 M122 34 V48 M133 34 V48 M144 34 V48" stroke-width="1"/>
+          <rect x="410" y="34" width="110" height="14" stroke-width="1.6"/>
+          <path d="M421 34 V48 M432 34 V48 M443 34 V48 M454 34 V48 M465 34 V48 M476 34 V48 M487 34 V48 M498 34 V48 M509 34 V48" stroke-width="1"/>
+          <rect x="206" y="212" width="9" height="118" stroke-width="1.6"/>
+          <path class="circuit" d="M222 218 H528 V232 H222 V246 H528 V260 H222 V274 H528 V288 H222 V302 H528 V316 H222 V330 H528" stroke-width="1.6"/>
+          <path d="M70 48 V130 H190 V222 H206 M460 48 V130 H330 V190 H215 V212" stroke-width="1" stroke-dasharray="5 5"/>
+        </g>
+      </svg>
+      <figcaption class="plan-caption">Un plano como los que se calculan en Warma: radiadores, losa radiante y cañerías.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<main>
+<section id="proyectos">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Proyectos</h2>
+      <p>Cuatro aplicaciones: tres en uso diario en una empresa real y una de la facultad. Cada una tiene su caso de estudio.</p>
+    </div>
+
+    <!-- WARMA -->
+    <article class="project" id="warma">
+      <div>
+        <h3>Warma</h3>
+        <p class="hook">El cálculo térmico que Delmar Calefacción hacía en papel desde hace más de 40 años, convertido en una app.</p>
+        <p class="summary">Se carga el plano de la obra, se dibujan los ambientes encima y el cálculo, los materiales y el informe salen solos. Mover un radiador es arrastrar y soltar.</p>
+        <div class="result">
+          <div><strong>3–4 h → 1 h</strong><span>tiempo de diseño por proyecto</span></div>
+          <div><strong>+50</strong><span>proyectos diseñados</span></div>
+          <div><strong>102</strong><span>pruebas automatizadas</span></div>
+        </div>
+        <div class="flow">
+          <p class="flow-title">Cómo funciona</p>
+          <ol>
+            <li><b>Plano PDF o DXF</b><small>Se procesa entero en el navegador (pdfjs-dist, dxf-parser)</small></li>
+            <li><b>Lógica de cálculo pura</b><small>Demanda térmica, geometría, losa radiante y materiales, sin dependencias de UI</small></li>
+            <li><b>Editor en canvas</b><small>React + Konva, estado en Zustand con deshacer por piso</small></li>
+            <li><b>Supabase</b><small>Proyectos en la nube con RLS, links públicos de solo lectura</small></li>
+          </ol>
+        </div>
+      </div>
+      <dl class="cartouche">
+        <div class="row"><dt>Estado</dt><dd><span class="status">En producción</span></dd></div>
+        <div class="row"><dt>Rol</dt><dd>Diseño y desarrollo, como freelance</dd></div>
+        <div class="row"><dt>Usuarios</dt><dd>Equipo comercial de Delmar Calefacción y sus clientes</dd></div>
+        <div class="row"><dt>Stack</dt><dd class="stack">React 18, Vite, Konva, Zustand, jsPDF, pdf-lib, Supabase, Vitest, Vercel</dd></div>
+        <div class="row"><dt>Código</dt><dd>Privado. Demo pública en preparación</dd></div>
+      </dl>
+      <details class="case">
+        <summary>Leer el caso de estudio de Warma</summary>
+        <div class="case-body">
+          <div>
+            <h4>El problema</h4>
+            <p>Cada instalación se diseñaba con lápiz sobre el plano impreso: medir ambientes, calcular la demanda, dimensionar radiadores o losa y contar materiales. Llevaba de 3 a 4 horas, y cada cambio obligaba a tachar o reimprimir, sin registro de versiones.</p>
+          </div>
+          <div>
+            <h4>La solución</h4>
+            <ul>
+              <li>Importa planos PDF (también de varias páginas) y DXF de AutoCAD, con escala por piso.</li>
+              <li>Zonas como polígonos con exclusiones: área, volumen y demanda en kcal/h.</li>
+              <li>Radiadores, toalleros y losa radiante con metros de caño, circuitos y colectores.</li>
+              <li>Informe PDF generado en el navegador y link de solo lectura con modo presentación.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Decisiones técnicas</h4>
+            <ul>
+              <li><b>Valor calculado con corrección manual.</b> Todo se calcula solo, pero el vendedor puede escribir otro valor encima: digitaliza el criterio de la empresa sin quitarle la última palabra al profesional.</li>
+              <li><b>Lógica separada de la interfaz.</b> El cálculo no depende de React ni de Konva, y eso permite probar que da lo mismo que el método en papel.</li>
+              <li><b>Compartir sin exponer la tabla.</b> El link usa un token y una función SECURITY DEFINER: nadie puede listar proyectos, solo abrir el suyo.</li>
+              <li><b>Sin servidor propio.</b> PDF, planos y cálculo corren en el cliente; Supabase hace de backend.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Desafíos</h4>
+            <ul>
+              <li><b>Geometría propia:</b> Shoelace para áreas, recorte Sutherland-Hodgman, scanline para exclusiones, A* sobre grilla y simplificación Ramer-Douglas-Peucker.</li>
+              <li><b>Compatibilidad:</b> funciones que migran formatos viejos para que los proyectos guardados no se rompan al actualizar.</li>
+              <li><b>Un bug que deshacía varias acciones juntas,</b> resuelto con instantáneas completas por piso y pruebas que lo fijan.</li>
+              <li><b>Informes robustos:</b> si una imagen tarda más de 8 segundos, el PDF se genera igual y avisa.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <!-- NEXO -->
+    <article class="project" id="nexo">
+      <div>
+        <h3>Nexo Delmar</h3>
+        <p class="hook">Stock, precios y ventas de MercadoLibre y Tienda Nube, sincronizados en un solo lugar.</p>
+        <p class="summary">Reemplazó los recuentos manuales de inventario, de varias horas dos o tres veces por semana, por una sincronización continua con trazabilidad de cada venta por canal.</p>
+        <div class="result">
+          <div><strong>~300</strong><span>productos en dos canales</span></div>
+          <div><strong>+150</strong><span>ventas registradas y conciliadas</span></div>
+          <div><strong>116</strong><span>endpoints de API</span></div>
+        </div>
+        <div class="flow">
+          <p class="flow-title">Cómo funciona</p>
+          <ol>
+            <li><b>MercadoLibre y Tienda Nube</b><small>OAuth 2.0 y webhooks de órdenes, publicaciones, preguntas y envíos</small></li>
+            <li><b>API en FastAPI</b><small>Responde a los webhooks en menos de 100 ms y procesa en segundo plano, con polling de respaldo</small></li>
+            <li><b>PostgreSQL</b><small>Índices únicos que garantizan que una venta no descuente stock dos veces</small></li>
+            <li><b>Panel en React + TypeScript</b><small>Precios, ventas, post-venta y rentabilidad, con avisos push al celular</small></li>
+          </ol>
+        </div>
+      </div>
+      <dl class="cartouche">
+        <div class="row"><dt>Estado</dt><dd><span class="status">En uso diario desde mediados de 2026</span></dd></div>
+        <div class="row"><dt>Rol</dt><dd>Desarrollo individual, de punta a punta: código, arquitectura e infraestructura</dd></div>
+        <div class="row"><dt>Usuarios</dt><dd>Operación de venta online de Delmar Calefacción</dd></div>
+        <div class="row"><dt>Stack</dt><dd class="stack">Python, FastAPI, SQLAlchemy async, PostgreSQL, React, TypeScript, Render, Vercel</dd></div>
+        <div class="row"><dt>Código</dt><dd>Privado: contiene datos de compradores y lógica de costos</dd></div>
+      </dl>
+      <details class="case">
+        <summary>Leer el caso de estudio de Nexo Delmar</summary>
+        <div class="case-body">
+          <div>
+            <h4>El problema</h4>
+            <p>El mismo stock físico se vendía en dos canales sin un punto de consolidación. Saber qué unidad se fue por dónde exigía recontar todo. Además, el precio correcto en MercadoLibre depende de comisiones, cargos fijos, percepciones y envío, y calcularlo a mano no escala a 300 productos.</p>
+          </div>
+          <div>
+            <h4>La solución</h4>
+            <ul>
+              <li>Sincronización bidireccional de stock con trazabilidad por canal y por orden.</li>
+              <li>Motor de precios que despeja el precio para un margen objetivo con las comisiones reales de la API.</li>
+              <li>Repricing por cotización del dólar con simulación, aprobación por producto y auditoría.</li>
+              <li>Publicación en MercadoLibre, post-venta y conciliación contra los settlements de MercadoPago.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Decisiones técnicas</h4>
+            <ul>
+              <li><b>Webhooks que responden antes de trabajar.</b> MercadoLibre desactiva un tópico si no recibe respuesta rápida; el handler confirma y procesa en una tarea aparte.</li>
+              <li><b>La unicidad vive en la base.</b> Webhook y polling pueden procesar la misma orden a la vez; un índice único parcial lo resuelve donde la garantía es real.</li>
+              <li><b>Lock por usuario en el refresh del token.</b> El refresh token de MercadoLibre es de un solo uso: dos refreshes simultáneos desconectaban la cuenta.</li>
+              <li><b>Pool de conexiones ajustado</b> tras un error real de producción por el límite del pooler de Supabase.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Desafíos</h4>
+            <ul>
+              <li><b>Un precio que depende de sí mismo:</b> la comisión incluye un cargo por tramo de precio, así que se resuelve iterando contra la API hasta converger a menos de $0,50.</li>
+              <li><b>El umbral de envío gratis,</b> que obliga a decidir con una estimación previa para no inflar productos baratos.</li>
+              <li><b>Settlements donde una venta son varias filas,</b> agrupadas por operación y clasificadas para revisión.</li>
+              <li><b>Deuda consciente:</b> las migraciones son sentencias idempotentes en el arranque en lugar de Alembic, suficiente para una sola instancia.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <!-- CALDERA CARE -->
+    <article class="project" id="caldera-care">
+      <div>
+        <h3>Caldera Care</h3>
+        <p class="hook">El sistema de gestión operativa del servicio técnico, en uso todos los días.</p>
+        <p class="summary">Centraliza calderas instaladas y vencimientos de mantenimiento, servicios técnicos, pañol de herramientas, pedidos a proveedores y tareas del equipo.</p>
+        <div class="result">
+          <div><strong>10–15</strong><span>clientes gestionados por día</span></div>
+          <div><strong>Por primera vez</strong><span>métricas de servicios completados por técnico</span></div>
+        </div>
+        <div class="flow">
+          <p class="flow-title">Cómo funciona</p>
+          <ol>
+            <li><b>SPA en React + TypeScript</b><small>Módulos por área: servicios, pedidos, pañol, tareas y estadísticas</small></li>
+            <li><b>Supabase</b><small>Autenticación y datos compartidos en tiempo real entre áreas</small></li>
+            <li><b>PostgreSQL con RLS y triggers</b><small>Las reglas críticas, como el puntaje de tareas, corren en la base</small></li>
+            <li><b>WhatsApp</b><small>Mensajes preformateados a técnicos, clientes y proveedores</small></li>
+          </ol>
+        </div>
+      </div>
+      <dl class="cartouche">
+        <div class="row"><dt>Estado</dt><dd><span class="status">En producción</span></dd></div>
+        <div class="row"><dt>Rol</dt><dd>Desarrollo individual, con Lovable y asistencia de IA</dd></div>
+        <div class="row"><dt>Usuarios</dt><dd>Técnicos, administración, taller y logística</dd></div>
+        <div class="row"><dt>Stack</dt><dd class="stack">React 18, TypeScript, Tailwind, shadcn/ui, TanStack Query, Supabase, PL/pgSQL, Recharts</dd></div>
+        <div class="row"><dt>Código</dt><dd>Privado: herramienta interna de la empresa</dd></div>
+      </dl>
+      <details class="case">
+        <summary>Leer el caso de estudio de Caldera Care</summary>
+        <div class="case-body">
+          <div>
+            <h4>El problema</h4>
+            <p>El servicio técnico se coordinaba por canales dispersos. Se perdían fechas de mantenimiento, el préstamo de herramientas no tenía seguimiento y la productividad de cada técnico era un dato que no existía.</p>
+          </div>
+          <div>
+            <h4>La solución</h4>
+            <ul>
+              <li>Calderas con cálculo automático de vencimientos y alertas por mora.</li>
+              <li>Mesa de servicios con prioridades, asignación y alertas de trabajos demorados.</li>
+              <li>Pañol con préstamos y devoluciones, y pedidos con recepción parcial ítem por ítem.</li>
+              <li>Tareas con límite de carga, gamificación y estadísticas por técnico.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Decisiones técnicas</h4>
+            <ul>
+              <li><b>Puntajes calculados en la base de datos</b> con triggers PL/pgSQL, para que no se puedan alterar desde el navegador.</li>
+              <li><b>Turnos validados con RLS</b> cruzando el usuario con el turno activo, para evitar registros duplicados por clics simultáneos.</li>
+              <li><b>Plazos en días hábiles,</b> porque las demoras de proveedores se miden al ritmo comercial.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Desafíos</h4>
+            <ul>
+              <li><b>Datos históricos en texto libre:</b> técnicos cargados con nombres escritos a mano, normalizados para que las métricas cierren.</li>
+              <li><b>Recepción parcial con trazabilidad:</b> el estado del pedido se deriva del estado de cada ítem.</li>
+              <li><b>Un ranking justo,</b> que combina tasa de cumplimiento, tiempo de resolución y experiencia acumulada.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <!-- MONIX -->
+    <article class="project" id="monix">
+      <div>
+        <h3>Monix</h3>
+        <p class="hook">Un homebanking web y Android que opera dentro de un sistema interbancario simulado.</p>
+        <p class="summary">Proyecto en equipo para Práctica Profesionalizante I, integrado a la API de un Banco Central que comparte toda la cátedra.</p>
+        <div class="links">
+          <a class="btn primary" href="https://monix-homebanking.vercel.app/">Probar la demo</a>
+          <a class="btn" href="https://github.com/Maxi12141/HomebankingMonix">Ver el código</a>
+        </div>
+        <div class="flow">
+          <p class="flow-title">Cómo funciona</p>
+          <ol>
+            <li><b>Web y app Android</b><small>React + TypeScript, empaquetada con Capacitor y un plugin nativo en Kotlin</small></li>
+            <li><b>Supabase</b><small>Autenticación, saldo en tiempo real y políticas RLS por usuario</small></li>
+            <li><b>API del Banco Central</b><small>Personas, cuentas, transferencias y situación crediticia</small></li>
+          </ol>
+        </div>
+      </div>
+      <dl class="cartouche">
+        <div class="row"><dt>Estado</dt><dd><span class="status team">Proyecto académico, desplegado</span></dd></div>
+        <div class="row"><dt>Equipo</dt><dd>Maximiliano Turaglio y Diego Urenda</dd></div>
+        <div class="row"><dt>Stack</dt><dd class="stack">React, TypeScript, Vite, Tailwind, Zustand, Supabase, Capacitor, Kotlin</dd></div>
+        <div class="row"><dt>Código</dt><dd>Público</dd></div>
+      </dl>
+      <details class="case">
+        <summary>Leer el caso de estudio de Monix</summary>
+        <div class="case-body">
+          <div>
+            <h4>Qué hace</h4>
+            <ul>
+              <li>Cuentas en pesos y dólares con CBU y alias asignados por el Banco Central.</li>
+              <li>Transferencias por CBU o alias, con saldo actualizado en tiempo real.</li>
+              <li>Préstamos con condiciones según la situación crediticia real del usuario.</li>
+              <li>Pagos por QR y NFC, y transferencias por proximidad con Bluetooth.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Decisiones técnicas</h4>
+            <ul>
+              <li><b>Tokens rotativos:</b> lo que viaja por Bluetooth, NFC o QR nunca es el CBU real; el servidor resuelve la identidad recién al confirmar.</li>
+              <li><b>Proxy del mismo origen</b> para consumir una API que no habilita CORS.</li>
+              <li><b>Un canal de tiempo real compartido por cuenta,</b> con conteo de referencias para evitar suscripciones duplicadas.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+    </article>
+  </div>
+</section>
+
+<section id="herramientas">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Herramientas internas</h2>
+      <p>Trabajos más chicos que resolvieron un problema puntual de la empresa. El código es privado.</p>
+    </div>
+    <div class="tools">
+      <div class="tool">
+        <h3>Migración de un sistema legacy</h3>
+        <p>Herramienta en el navegador que migra datos de Clipper/FoxPro a una plataforma nueva, con normalización de razones sociales, provincias por código postal y detección de marcas.</p>
+        <p class="tech">JavaScript, archivos DBF</p>
+      </div>
+      <div class="tool">
+        <h3>Integración con AFIP/ARCA</h3>
+        <p>Corrección de la condición de IVA de unos 1.800 clientes consultando el webservice oficial con certificado digital.</p>
+        <p class="tech">Python, SOAP</p>
+      </div>
+      <div class="tool">
+        <h3>Conciliación de MercadoLibre</h3>
+        <p>Reportes mensuales con detalle por venta, netos sin IVA y márgenes vinculados al tipo de cambio.</p>
+        <p class="tech">Excel</p>
+      </div>
+      <div class="tool">
+        <h3>Generador de códigos EAN-13</h3>
+        <p>Genera e imprime códigos de barras para inventario, sin dependencias externas.</p>
+        <p class="tech">HTML, JavaScript, canvas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="wrap about">
+    <div>
+      <div class="sec-head" style="margin-bottom:1.5rem"><h2>Sobre mí</h2></div>
+      <p>Soy Diego, de Villa María, Córdoba. Trabajo en Delmar Calefacción atendiendo consultas técnicas de clientes e instaladores, y desde ahí desarrollo las herramientas que la empresa necesita.</p>
+      <p>Desarrollo con IA y agentes como parte central de mi flujo de trabajo, siempre con criterio para revisar, validar y entender lo que se construye.</p>
+      <p class="muted">Estudiante avanzado de Analista en Sistemas: estoy por recibir el título intermedio y me recibo en 2027. Certificado de Linux nivel inicial.</p>
+    </div>
+    <div class="skills">
+      <dl>
+        <div class="row"><dt>Frontend</dt><dd>React, TypeScript, JavaScript, Tailwind</dd></div>
+        <div class="row"><dt>Backend</dt><dd>Python, FastAPI, SQLAlchemy</dd></div>
+        <div class="row"><dt>Datos</dt><dd>PostgreSQL, Supabase, PL/pgSQL</dd></div>
+        <div class="row"><dt>Integraciones</dt><dd>APIs REST, OAuth 2.0, webhooks, MercadoLibre, Tienda Nube, AFIP</dd></div>
+        <div class="row"><dt>Infra</dt><dd>Vercel, Render, Linux, nginx</dd></div>
+        <div class="row"><dt>Calidad</dt><dd>Vitest, pytest</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap contact">
+    <h2>¿Tenés un problema que se resuelve con software? Hablemos.</h2>
+    <div class="ctas" style="margin-top:0">
+      <a class="btn primary" href="mailto:[TU EMAIL]">Escribirme</a>
+      <a class="btn" href="[URL DE TU LINKEDIN]">LinkedIn</a>
+      <a class="btn" href="https://github.com/urendadiego">GitHub</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Diego Urenda · Villa María, Córdoba. Los datos que aparecen en capturas y demos son ficticios.</div>
+</footer>
+</body>
+</html>
