@@ -1,0 +1,18 @@
+Nombres de archivo que espera la pagina (formato .webp, ancho recomendado 1600 px).
+Si una imagen no esta, su espacio no se muestra. Para ver los espacios vacios: urendadiego.github.io/?borrador
+
+img/caldera-calderas.webp
+img/caldera-metricas.webp
+img/caldera-movil.webp
+img/caldera-servicios.webp
+img/monix-android.webp
+img/monix-inicio.webp
+img/monix-prestamos.webp
+img/monix-transferencia.webp
+img/nexo-precios.webp
+img/nexo-repricing.webp
+img/nexo-stock.webp
+img/warma-calculo.webp
+img/warma-editor.webp
+img/warma-informe.webp
+img/warma-losa.webp
