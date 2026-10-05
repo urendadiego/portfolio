@@ -1,18 +1,21 @@
-Nombres de archivo que espera la pagina (formato .webp, ancho recomendado 1600 px).
-Si una imagen no esta, su espacio no se muestra. Para ver los espacios vacios: urendadiego.github.io/portfolio/?borrador
+Capturas que espera la pagina (formato .webp; desktop ~1600 px de ancho, mobile tal cual sale del celular).
+Si una imagen no esta, no se muestra. Si un proyecto no tiene ninguna captura, se ve solo el diagrama "Como funciona".
+Para ver los espacios pendientes con su nombre: urendadiego.github.io/portfolio/?borrador
 
-img/caldera-calderas.webp
-img/caldera-metricas.webp
-img/caldera-movil.webp
-img/caldera-servicios.webp
-img/monix-android.webp
-img/monix-inicio.webp
-img/monix-prestamos.webp
-img/monix-transferencia.webp
-img/nexo-precios.webp
-img/nexo-repricing.webp
-img/nexo-stock.webp
-img/warma-calculo.webp
-img/warma-editor.webp
-img/warma-informe.webp
-img/warma-losa.webp
+Desktop y mobile rotan en pares: la captura N de desktop se muestra junto a la N de mobile.
+Conviene tener la misma cantidad de cada una, en el mismo orden.
+
+WARMA
+  desktop: warma-editor, warma-calculo, warma-canerias, warma-medicion, warma-informe (pendiente)
+  mobile:  warma-movil-plano, warma-movil-resumen, warma-movil-materiales, warma-movil-menu
+
+NEXO DELMAR (sin compradores; montos de ejemplo o difuminados)
+  desktop: nexo-precios, nexo-repricing, nexo-stock
+
+CALDERA CARE
+  desktop: caldera-panel, caldera-servicios, caldera-calderas
+  mobile:  caldera-movil-panel, caldera-movil-servicios, caldera-movil-clientes
+
+MONIX
+  desktop: monix-inicio, monix-transferencia, monix-prestamos
+  android: monix-android-inicio, monix-android-transferencia, monix-android-qr
