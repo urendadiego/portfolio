@@ -1,5 +1,5 @@
 Nombres de archivo que espera la pagina (formato .webp, ancho recomendado 1600 px).
-Si una imagen no esta, su espacio no se muestra. Para ver los espacios vacios: urendadiego.github.io/?borrador
+Si una imagen no esta, su espacio no se muestra. Para ver los espacios vacios: urendadiego.github.io/portfolio/?borrador
 
 img/caldera-calderas.webp
 img/caldera-metricas.webp
