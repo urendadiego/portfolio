@@ -55,6 +55,7 @@
   --plan:#3B4F6E; --heat:#F2A541; --ok:#4CC27F; color-scheme:dark;
 }
 html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+@media (max-width: 560px){html{scroll-padding-top:1rem}}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 var(--sans);-webkit-font-smoothing:antialiased}
 img,svg{max-width:100%}
@@ -303,6 +304,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   .flow,.skills{grid-template-columns:minmax(0,1fr)}
   .phone{width:34%;right:-.25rem}
   .me small{display:none}
+  .top{position:static}
 }
 </style>
 </head>
@@ -444,7 +446,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     <article class="sheet flip" id="nexo">
       <div class="info reveal">
         <div class="sheet-no"><b>02</b><span><span data-l="es" lang="es">Lámina 02 de 04<br>En uso diario</span><span data-l="en" lang="en">Sheet 02 of 04<br>In daily use</span></span></div>
-        <div class="chips"><span class="chip live"><span data-l="es" lang="es">En uso diario desde mediados de 2026</span><span data-l="en" lang="en">In daily use since mid-2026</span></span><span class="chip"><span data-l="es" lang="es">Código privado</span><span data-l="en" lang="en">Private code</span></span></div>
+        <div class="chips"><span class="chip live"><span data-l="es" lang="es">En uso diario desde mediados de 2026</span><span data-l="en" lang="en">In daily use since mid-2026</span></span><span class="chip"><span data-l="es" lang="es">Demo pública</span><span data-l="en" lang="en">Public demo</span></span><span class="chip"><span data-l="es" lang="es">Código privado</span><span data-l="en" lang="en">Private code</span></span></div>
         <h3>Nexo Delmar</h3>
         <p class="hook" data-l="es" lang="es">Stock, precios y ventas de MercadoLibre y Tienda Nube, sincronizados en un solo lugar.</p><p class="hook" data-l="en" lang="en">Stock, prices and sales from MercadoLibre and Tienda Nube, synced in one place.</p>
         <p class="summary" data-l="es" lang="es">Reemplazó los recuentos manuales de inventario, de varias horas dos o tres veces por semana, por una sincronización continua con trazabilidad de cada venta por canal.</p><p class="summary" data-l="en" lang="en">It replaced manual inventory counts, which took several hours two or three times a week, with continuous sync and per-channel traceability for every sale.</p>
@@ -458,24 +460,33 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
           <li><b>04</b><span><span data-l="es" lang="es">Publicación, post-venta y conciliación contra los settlements de MercadoPago</span><span data-l="en" lang="en">Listing, after-sales and reconciliation against MercadoPago settlements</span></span></li>
         </ol>
         <div class="stack"><span>Python</span><span>FastAPI</span><span>SQLAlchemy async</span><span>PostgreSQL</span><span>React</span><span>TypeScript</span><span>Render</span><span>Vercel</span></div>
-        <div class="btns"><a class="btn" href="#case-nexo" data-open-case><span data-l="es" lang="es">Caso de estudio</span><span data-l="en" lang="en">Case study</span></a></div>
+        <div class="btns"><a class="btn primary" href="https://nexodelmar.vercel.app/demo"><span data-l="es" lang="es">Probar la demo</span><span data-l="en" lang="en">Try the demo</span> ↗</a><a class="btn" href="#case-nexo" data-open-case><span data-l="es" lang="es">Caso de estudio</span><span data-l="en" lang="en">Case study</span></a></div>
       </div>
       <div class="visual reveal" style="--d:.12s">
         <div class="carousel" data-carousel>
           <div class="device">
             <div class="backplate" aria-hidden="true"></div>
-            <div class="frame"><span class="tag">Desktop</span><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>Nexo Delmar</span></div>
-              <div class="slides" data-desk>
-                <img src="img/nexo-precios.webp" alt="" decoding="async">
+            <div class="frame"><span class="tag">Desktop</span><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>nexodelmar.vercel.app/demo</span></div>
+              <div class="slides" data-desk style="aspect-ratio:16/10">
+                <img src="img/nexo-catalogo.webp" alt="" decoding="async">
+                <img src="img/nexo-precio.webp" alt="" decoding="async">
                 <img src="img/nexo-repricing.webp" alt="" decoding="async">
-                <img src="img/nexo-stock.webp" alt="" decoding="async">
+                <img src="img/nexo-ventas.webp" alt="" decoding="async">
+              </div></div>
+            <div class="phone"><span class="tag">Mobile</span>
+              <div class="slides" data-phone style="aspect-ratio:520/1125">
+                <img src="img/nexo-movil-catalogo.webp" alt="" decoding="async">
+                <img src="img/nexo-movil-precio.webp" alt="" decoding="async">
+                <img src="img/nexo-movil-repricing.webp" alt="" decoding="async">
+                <img src="img/nexo-movil-ventas.webp" alt="" decoding="async">
               </div></div>
           </div>
           <div class="ctrl"><div class="dots"></div><button type="button" class="pause" aria-pressed="false"><span class="a"><span data-l="es" lang="es">Pausar</span><span data-l="en" lang="en">Pause</span></span><span class="b"><span data-l="es" lang="es">Reanudar</span><span data-l="en" lang="en">Resume</span></span></button><a class="zoom" href="#" target="_blank" rel="noopener"><span data-l="es" lang="es">Ver en grande</span><span data-l="en" lang="en">Full size</span>&nbsp;↗</a></div>
           <div class="caps">
-            <p><span data-l="es" lang="es">Motor de precios: comisiones desglosadas y precio para un margen objetivo, con montos de ejemplo.</span><span data-l="en" lang="en">Pricing engine: fee breakdown and price for a target margin, with sample amounts.</span></p>
-            <p><span data-l="es" lang="es">Repricing por cotización del dólar: simulación y aprobación por producto.</span><span data-l="en" lang="en">Repricing by exchange rate: simulation and per-product approval.</span></p>
-            <p><span data-l="es" lang="es">Stock sincronizado por canal, sin datos de compradores.</span><span data-l="en" lang="en">Stock synced per channel, without buyer data.</span></p>
+            <p><span data-l="es" lang="es">Catálogo: productos sincronizados entre los dos canales, con costo en dólares y precio en cada canal.</span><span data-l="en" lang="en">Catalog: products synced across both channels, with USD cost and the price on each channel.</span></p>
+            <p><span data-l="es" lang="es">Ficha de precios: comisiones, percepciones y envío desglosados, con la ganancia en cada canal.</span><span data-l="en" lang="en">Pricing sheet: fees, tax withholdings and shipping broken down, with the profit on each channel.</span></p>
+            <p><span data-l="es" lang="es">Repricing: el nuevo precio de cada publicación con la cotización del dólar, antes de publicar.</span><span data-l="en" lang="en">Repricing: the new price of each listing at the current exchange rate, before publishing.</span></p>
+            <p><span data-l="es" lang="es">Ventas: facturación por mes y por canal, más vendidos y últimas ventas.</span><span data-l="en" lang="en">Sales: monthly revenue per channel, best sellers and latest sales.</span></p>
           </div>
         </div>
         <div class="flowbox">
@@ -515,23 +526,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
           <div class="device">
             <div class="backplate" aria-hidden="true"></div>
             <div class="frame"><span class="tag">Desktop</span><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>caldera-care.lovable.app/demo</span></div>
-              <div class="slides" data-desk>
+              <div class="slides" data-desk style="aspect-ratio:4/3">
                 <img src="img/caldera-panel.webp" alt="" decoding="async">
                 <img src="img/caldera-servicios.webp" alt="" decoding="async">
-                <img src="img/caldera-calderas.webp" alt="" decoding="async">
+                <img src="img/caldera-pedidos.webp" alt="" decoding="async">
+                <img src="img/caldera-estadisticas.webp" alt="" decoding="async">
               </div></div>
             <div class="phone"><span class="tag">Mobile</span>
-              <div class="slides" data-phone>
+              <div class="slides" data-phone style="aspect-ratio:390/844">
                 <img src="img/caldera-movil-panel.webp" alt="" decoding="async">
                 <img src="img/caldera-movil-servicios.webp" alt="" decoding="async">
-                <img src="img/caldera-movil-clientes.webp" alt="" decoding="async">
+                <img src="img/caldera-movil-pedidos.webp" alt="" decoding="async">
+                <img src="img/caldera-movil-estadisticas.webp" alt="" decoding="async">
               </div></div>
           </div>
           <div class="ctrl"><div class="dots"></div><button type="button" class="pause" aria-pressed="false"><span class="a"><span data-l="es" lang="es">Pausar</span><span data-l="en" lang="en">Pause</span></span><span class="b"><span data-l="es" lang="es">Reanudar</span><span data-l="en" lang="en">Resume</span></span></button><a class="zoom" href="#" target="_blank" rel="noopener"><span data-l="es" lang="es">Ver en grande</span><span data-l="en" lang="en">Full size</span>&nbsp;↗</a></div>
           <div class="caps">
-            <p><span data-l="es" lang="es">Panel de control: servicios pendientes, préstamos de herramientas y pedidos activos.</span><span data-l="en" lang="en">Dashboard: pending service jobs, tool loans and active orders.</span></p>
-            <p><span data-l="es" lang="es">Mesa de servicios: prioridades, técnico asignado y trabajos demorados.</span><span data-l="en" lang="en">Service desk: priorities, assigned technician and delayed jobs.</span></p>
-            <p><span data-l="es" lang="es">Clientes con su caldera y la fecha del próximo mantenimiento.</span><span data-l="en" lang="en">Customers with their boiler and the next maintenance date.</span></p>
+            <p><span data-l="es" lang="es">Panel de control: servicios pendientes y próximos mantenimientos.</span><span data-l="en" lang="en">Dashboard: pending service jobs and upcoming maintenance.</span></p>
+            <p><span data-l="es" lang="es">Mesa de servicios: prioridades, técnico asignado y alertas de demora.</span><span data-l="en" lang="en">Service desk: priorities, assigned technician and delay alerts.</span></p>
+            <p><span data-l="es" lang="es">Pedidos a proveedores, con sus ítems y su estado.</span><span data-l="en" lang="en">Supplier orders, with their items and status.</span></p>
+            <p><span data-l="es" lang="es">Estadísticas del taller: servicios por técnico y días promedio de resolución.</span><span data-l="en" lang="en">Workshop statistics: jobs per technician and average resolution time.</span></p>
           </div>
         </div>
         <div class="flowbox">

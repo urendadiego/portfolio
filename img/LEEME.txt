@@ -9,12 +9,13 @@ WARMA
   desktop: warma-editor, warma-calculo, warma-canerias, warma-medicion, warma-informe (pendiente)
   mobile:  warma-movil-plano, warma-movil-resumen, warma-movil-materiales, warma-movil-menu
 
-NEXO DELMAR (sin compradores; montos de ejemplo o difuminados)
-  desktop: nexo-precios, nexo-repricing, nexo-stock
+NEXO DELMAR
+  desktop: nexo-catalogo, nexo-precio, nexo-repricing, nexo-ventas
+  mobile:  nexo-movil-catalogo, nexo-movil-precio, nexo-movil-repricing, nexo-movil-ventas
 
 CALDERA CARE
-  desktop: caldera-panel, caldera-servicios, caldera-calderas
-  mobile:  caldera-movil-panel, caldera-movil-servicios, caldera-movil-clientes
+  desktop: caldera-panel, caldera-servicios, caldera-pedidos, caldera-estadisticas
+  mobile:  caldera-movil-panel, caldera-movil-servicios, caldera-movil-pedidos, caldera-movil-estadisticas
 
 MONIX
   desktop: monix-inicio, monix-transferencia, monix-prestamos
