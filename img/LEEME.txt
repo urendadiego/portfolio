@@ -18,5 +18,5 @@ CALDERA CARE
   mobile:  caldera-movil-panel, caldera-movil-servicios, caldera-movil-pedidos, caldera-movil-estadisticas
 
 MONIX
-  desktop: monix-inicio, monix-transferencia, monix-prestamos
-  android: monix-android-inicio, monix-android-transferencia, monix-android-qr
+  desktop: monix-landing, monix-inicio, monix-transferencia, monix-dolares
+  mobile:  monix-android-landing, monix-android-inicio, monix-android-transferencia, monix-android-dolares
