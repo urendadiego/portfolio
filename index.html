@@ -116,7 +116,6 @@ html.draft a[data-pending]{display:inline-flex;border-style:dashed;opacity:.6}
 .plan .heat{stroke:var(--heat);fill:none;stroke-linecap:round;stroke-linejoin:round}
 .plan .circuit{stroke-dasharray:6200;stroke-dashoffset:6200;animation:draw 3.2s .6s ease-out forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
-.plan-caption{margin-top:.75rem;color:var(--muted);font-size:.88rem}
 
 /* Title block strip */
 .strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1.5px solid var(--line-strong);background:var(--surface);margin-bottom:clamp(2.5rem,5vw,4rem)}
@@ -236,7 +235,10 @@ details.case[open] summary{border-bottom:1px solid var(--line)}
 .step .tech{font:400 .78rem/1.4 var(--mono);margin-top:.6rem}
 
 /* About */
-.about{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,5vw,4.5rem)}
+.about{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.profile{display:grid;grid-template-columns:minmax(0,9rem) minmax(0,1fr);gap:1.5rem;align-items:start}
+.portrait{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border:1.5px solid var(--line-strong);border-radius:6px;padding:4px;background:var(--surface)}
+.profile .timeline{margin-top:0}
 .about h2{font-family:var(--cond);font-size:clamp(2rem,4vw,3.1rem);margin:.45rem 0 1.4rem}
 .about p+p{margin-top:1rem}
 .about .muted{color:var(--muted)}
@@ -247,7 +249,7 @@ details.case[open] summary{border-bottom:1px solid var(--line)}
 .timeline .when{display:block;font:400 .76rem/1.3 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 .timeline b{display:block;font-weight:600}
 .timeline li>span:last-child{color:var(--muted);font-size:.93rem}
-.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4rem 1.6rem;align-content:start}
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem 2rem;align-content:start}
 .skills h4{font:500 .74rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:.5rem;border-bottom:1.5px solid var(--text);margin-bottom:.4rem}
 .skills ul{list-style:none;margin:0;padding:0}
 .skills li{padding:.3rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
@@ -259,6 +261,7 @@ details.case[open] summary{border-bottom:1px solid var(--line)}
 .contact h2{font-family:var(--cond);font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.04;margin-top:.5rem}
 .mail{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-top:1.4rem}
 .mail code{font:500 1.02rem/1 var(--mono);padding:.7rem .8rem;border:1px solid var(--line-strong);border-radius:6px;user-select:all;overflow-wrap:anywhere}
+.ats{margin-top:1rem;font-size:.9rem;color:var(--muted)}
 .copy .b,.copy.done .a{display:none}
 .copy.done .b{display:inline}
 .contact .btns{justify-content:flex-end}
@@ -295,6 +298,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   .step:nth-child(4){padding-left:1rem}
   .step:nth-child(n+3){border-top:1px solid var(--line)}
   .row{grid-template-columns:minmax(0,1fr)}
+  .skills{grid-template-columns:repeat(2,minmax(0,1fr))}
   .contact .btns{justify-content:flex-start}
 }
 @media (max-width: 560px){
@@ -302,6 +306,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   .step,.step+.step,.step:nth-child(2),.step:nth-child(4){padding:1.1rem 0;border-right:0;border-top:1px solid var(--line)}
   .step:first-child{border-top:0}
   .flow,.skills{grid-template-columns:minmax(0,1fr)}
+  .profile{grid-template-columns:minmax(0,1fr)}
+  .portrait{max-width:11rem}
   .phone{width:34%;right:-.25rem}
   .me small{display:none}
   .top{position:static}
@@ -314,10 +320,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   <a class="me" href="#">Diego Urenda<small>Villa María, Córdoba</small></a>
   <div class="top-right">
     <nav aria-label="Secciones">
-      <a href="#proyectos"><span data-l="es" lang="es">Proyectos</span><span data-l="en" lang="en">Projects</span></a>
-      <a href="#herramientas"><span data-l="es" lang="es">Herramientas</span><span data-l="en" lang="en">Tools</span></a>
-      <a href="#con-ia"><span data-l="es" lang="es">Con IA</span><span data-l="en" lang="en">With AI</span></a>
       <a href="#sobre-mi"><span data-l="es" lang="es">Sobre mí</span><span data-l="en" lang="en">About</span></a>
+      <a href="#proyectos"><span data-l="es" lang="es">Proyectos</span><span data-l="en" lang="en">Projects</span></a>
+      <a href="#con-ia"><span data-l="es" lang="es">Con IA</span><span data-l="en" lang="en">With AI</span></a>
+      <a href="#herramientas"><span data-l="es" lang="es">Herramientas</span><span data-l="en" lang="en">Tools</span></a>
       <a href="#contacto"><span data-l="es" lang="es">Contacto</span><span data-l="en" lang="en">Contact</span></a>
     </nav>
     <div class="langs" role="group" aria-label="Idioma / Language">
@@ -364,21 +370,41 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
           <path d="M70 48 V130 H190 V222 H206 M460 48 V130 H330 V190 H215 V212" stroke-width="1" stroke-dasharray="5 5"/>
         </g>
       </svg>
-      <figcaption class="plan-caption"><span data-l="es" lang="es">Un plano como los que se calculan en Warma: radiadores, losa radiante y cañerías.</span><span data-l="en" lang="en">A floor plan like the ones calculated in Warma: radiators, radiant floor and piping.</span></figcaption>
     </figure>
   </div>
   <div class="strip reveal" role="list">
     <div role="listitem"><strong>3</strong><span data-l="es" lang="es">aplicaciones en producción y uso diario</span><span data-l="en" lang="en">applications in production and daily use</span></div>
     <div role="listitem"><strong>6</strong><span data-l="es" lang="es">áreas de la empresa optimizadas con desarrollo propio</span><span data-l="en" lang="en">company areas improved with in-house software</span></div>
     <div role="listitem"><strong>4</strong><span data-l="es" lang="es">plataformas integradas: MercadoLibre, Tienda Nube, MercadoPago y AFIP/ARCA</span><span data-l="en" lang="en">integrated platforms: MercadoLibre, Tienda Nube, MercadoPago and AFIP/ARCA</span></div>
-    <div role="listitem"><strong>1</strong><span data-l="es" lang="es">desarrollador, de la idea al deploy</span><span data-l="en" lang="en">developer, from idea to deployment</span></div>
+    <div role="listitem"><strong>10</strong><span data-l="es" lang="es">años de atención al público: escuchar, resolver y explicar con claridad</span><span data-l="en" lang="en">years of customer-facing work: listening, solving and explaining clearly</span></div>
   </div>
 </div>
+
+<section id="sobre-mi">
+  <div class="wrap about">
+    <div class="reveal">
+      <p class="eyebrow"><span data-l="es" lang="es">01 — Perfil</span><span data-l="en" lang="en">01 — Profile</span></p>
+      <h2><span data-l="es" lang="es">Sobre mí</span><span data-l="en" lang="en">About me</span></h2>
+      <p data-l="es" lang="es">Me interesan los problemas que todavía no sé cómo resolver. Cuando algo es nuevo para mí, lo estudio hasta entenderlo y lo aplico en un caso real: así incorporé integraciones con marketplaces, geometría de planos y bases de datos en producción. Soy constante con los problemas difíciles y prefiero revisar una solución con paciencia antes que darla por buena rápido.</p><p data-l="en" lang="en">I'm drawn to problems I don't yet know how to solve. When something is new to me, I study it until I understand it and then apply it to a real case: that's how I picked up marketplace integrations, floor-plan geometry and production databases. I'm persistent with hard problems, and I'd rather review a solution patiently than call it done too soon.</p>
+      <p data-l="es" lang="es">Hoy trabajo en ventas técnicas y servicio técnico en Delmar Calefacción. Conocer la operación de cerca me permitió ver dónde el software podía ayudar, y de ahí surgieron las herramientas que el equipo usa a diario. Diez años de atención al público me enseñaron a escuchar antes de proponer y a explicar lo técnico con claridad. Busco un equipo donde seguir aprendiendo y aportar desde el primer día.</p><p data-l="en" lang="en">Today I work in technical sales and service at Delmar Calefacción. Seeing the operation up close showed me where software could help, and that's where the tools the team uses every day came from. Ten years of customer-facing work taught me to listen before proposing and to explain technical things clearly. I'm looking for a team where I can keep learning and contribute from day one.</p>
+      <p class="muted" data-l="es" lang="es">Inglés nivel C2 (EF SET). Certificado de Linux nivel inicial.</p><p class="muted" data-l="en" lang="en">English at C2 level (EF SET). Linux beginner-level certificate.</p>
+    </div>
+    <div class="profile reveal" style="--d:.1s">
+      <img class="portrait" src="img/diego.webp" alt="Diego Urenda" width="600" height="600" decoding="async">
+      <ol class="timeline">
+        <li><span class="when"><span data-l="es" lang="es">Dic. 2025 — hoy</span><span data-l="en" lang="en">Dec 2025 — present</span></span><b><span data-l="es" lang="es">Desarrollador de software (autónomo)</span><span data-l="en" lang="en">Software developer (self-employed)</span></b><span><span data-l="es" lang="es">Warma, Nexo Delmar, Caldera Care y herramientas internas para Delmar Calefacción</span><span data-l="en" lang="en">Warma, Nexo Delmar, Caldera Care and internal tools for Delmar Calefacción</span></span></li>
+        <li><span class="when"><span data-l="es" lang="es">Jun. 2025 — hoy</span><span data-l="en" lang="en">Jun 2025 — present</span></span><b><span data-l="es" lang="es">Ventas técnicas y servicio técnico</span><span data-l="en" lang="en">Technical sales and service</span></b><span>Delmar Calefacción S.A.S.</span></li>
+        <li><span class="when">2015 — 2025</span><b><span data-l="es" lang="es">Atención al público y caja</span><span data-l="en" lang="en">Customer service and cash handling</span></b><span><span data-l="es" lang="es">Estación de servicio Shell</span><span data-l="en" lang="en">Shell service station</span></span></li>
+        <li><span class="when"><span data-l="es" lang="es">2025 — 2027 (previsto)</span><span data-l="en" lang="en">2025 — 2027 (expected)</span></span><b><span data-l="es" lang="es">Analista en Sistemas de Computación</span><span data-l="en" lang="en">Computer Systems Analyst</span></b><span>Instituto Leibnitz</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
 
 <section id="proyectos">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div><p class="eyebrow"><span data-l="es" lang="es">01 — Trabajo seleccionado</span><span data-l="en" lang="en">01 — Selected work</span></p><h2><span data-l="es" lang="es">Proyectos</span><span data-l="en" lang="en">Projects</span></h2></div>
+      <div><p class="eyebrow"><span data-l="es" lang="es">02 — Trabajo seleccionado</span><span data-l="en" lang="en">02 — Selected work</span></p><h2><span data-l="es" lang="es">Proyectos</span><span data-l="en" lang="en">Projects</span></h2></div>
       <p data-l="es" lang="es">Tres aplicaciones en uso diario en una empresa y un proyecto académico en equipo. Cada lámina muestra qué resolví, el stack y un caso de estudio con las decisiones técnicas.</p><p data-l="en" lang="en">Three applications in daily use at a company and one academic team project. Each sheet shows what I built, the stack and a case study with the technical decisions.</p>
     </div>
 
@@ -621,21 +647,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   </div>
 </section>
 
-<section id="herramientas">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div><p class="eyebrow"><span data-l="es" lang="es">02 — Otros trabajos</span><span data-l="en" lang="en">02 — Other work</span></p><h2><span data-l="es" lang="es">Herramientas internas</span><span data-l="en" lang="en">Internal tools</span></h2></div>
-      <p data-l="es" lang="es">Desarrollos acotados que resolvieron necesidades puntuales de la empresa. El código es privado.</p><p data-l="en" lang="en">Smaller, focused builds that solved specific business needs. The code is private.</p>
-    </div>
-    <div class="rows reveal">
-      <div class="row"><h3><span data-l="es" lang="es">Migración de un sistema legacy</span><span data-l="en" lang="en">Legacy system migration</span></h3><p data-l="es" lang="es">Herramienta en el navegador que migra datos de Clipper/FoxPro a una plataforma nueva, con normalización de razones sociales, provincias por código postal y detección de marcas.</p><p data-l="en" lang="en">Browser-based tool that migrates Clipper/FoxPro data to a new platform, normalizing company names, inferring provinces from postal codes and detecting brands.</p><span class="tech">JavaScript · DBF</span></div>
-      <div class="row"><h3><span data-l="es" lang="es">Integración con AFIP/ARCA</span><span data-l="en" lang="en">AFIP/ARCA integration</span></h3><p data-l="es" lang="es">Corrección de la condición de IVA de unos 1.800 clientes consultando el webservice oficial con certificado digital.</p><p data-l="en" lang="en">Corrected the VAT status of about 1,800 customers by querying the Argentine tax authority web service with a digital certificate.</p><span class="tech">Python · SOAP</span></div>
-      <div class="row"><h3><span data-l="es" lang="es">Conciliación de MercadoLibre</span><span data-l="en" lang="en">MercadoLibre reconciliation</span></h3><p data-l="es" lang="es">Reportes mensuales con detalle por venta, netos sin IVA y márgenes vinculados al tipo de cambio.</p><p data-l="en" lang="en">Monthly reports with per-sale detail, net amounts before VAT and margins tied to the exchange rate.</p><span class="tech">Excel</span></div>
-      <div class="row"><h3><span data-l="es" lang="es">Generador de códigos EAN-13</span><span data-l="en" lang="en">EAN-13 barcode generator</span></h3><p data-l="es" lang="es">Genera e imprime códigos de barras para inventario, sin dependencias externas.</p><p data-l="en" lang="en">Generates and prints inventory barcodes, with no external dependencies.</p><span class="tech">HTML · JavaScript · canvas</span></div>
-    </div>
-  </div>
-</section>
-
 <section id="con-ia">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -651,21 +662,28 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   </div>
 </section>
 
-<section id="sobre-mi">
-  <div class="wrap about">
-    <div class="reveal">
-      <p class="eyebrow"><span data-l="es" lang="es">04 — Perfil</span><span data-l="en" lang="en">04 — Profile</span></p>
-      <h2><span data-l="es" lang="es">Sobre mí</span><span data-l="en" lang="en">About me</span></h2>
-      <p data-l="es" lang="es">Soy de Villa María, Córdoba, Argentina. En Delmar Calefacción trabajo en ventas técnicas y servicio técnico: diseño y vendo sistemas de calefacción, asesoro a clientes e instaladores y hago service. De ese contacto diario con la operación surgen los problemas que resuelvo con software.</p><p data-l="en" lang="en">I'm based in Villa María, Córdoba, Argentina. At Delmar Calefacción I work in technical sales and service: I design and sell heating systems, advise customers and installers, and do field service. That daily contact with operations is where the problems I solve with software come from.</p>
-      <p data-l="es" lang="es">Busco un puesto como desarrollador full stack, en Argentina o en remoto para equipos del exterior.</p><p data-l="en" lang="en">I'm looking for a full-stack developer role, in Argentina or remote with international teams.</p>
-      <p class="muted" data-l="es" lang="es">Inglés nivel C2. Certificado de Linux nivel inicial.</p><p class="muted" data-l="en" lang="en">English at C2 level. Linux beginner-level certificate.</p>
-      <ol class="timeline">
-        <li><span class="when"><span data-l="es" lang="es">Dic. 2025 — hoy</span><span data-l="en" lang="en">Dec 2025 — present</span></span><b><span data-l="es" lang="es">Desarrollador de software (autónomo)</span><span data-l="en" lang="en">Software developer (self-employed)</span></b><span><span data-l="es" lang="es">Warma, Nexo Delmar, Caldera Care y herramientas internas</span><span data-l="en" lang="en">Warma, Nexo Delmar, Caldera Care and internal tools</span></span></li>
-        <li><span class="when"><span data-l="es" lang="es">Actual</span><span data-l="en" lang="en">Current</span></span><b><span data-l="es" lang="es">Ventas técnicas y servicio técnico</span><span data-l="en" lang="en">Technical sales and service</span></b><span>Delmar Calefacción S.A.S.</span></li>
-        <li><span class="when"><span data-l="es" lang="es">Egreso previsto 2027</span><span data-l="en" lang="en">Expected 2027</span></span><b><span data-l="es" lang="es">Analista en Sistemas de Computación</span><span data-l="en" lang="en">Computer Systems Analyst</span></b><span>Instituto Leibnitz</span></li>
-      </ol>
+<section id="herramientas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow"><span data-l="es" lang="es">04 — Otros trabajos</span><span data-l="en" lang="en">04 — Other work</span></p><h2><span data-l="es" lang="es">Herramientas internas</span><span data-l="en" lang="en">Internal tools</span></h2></div>
+      <p data-l="es" lang="es">Desarrollos acotados que resolvieron necesidades puntuales de la empresa. El código es privado.</p><p data-l="en" lang="en">Smaller, focused builds that solved specific business needs. The code is private.</p>
     </div>
-    <div class="skills reveal" style="--d:.1s">
+    <div class="rows reveal">
+      <div class="row"><h3><span data-l="es" lang="es">Migración de un sistema legacy</span><span data-l="en" lang="en">Legacy system migration</span></h3><p data-l="es" lang="es">Herramienta en el navegador que migra datos de Clipper/FoxPro a una plataforma nueva, con normalización de razones sociales, provincias por código postal y detección de marcas.</p><p data-l="en" lang="en">Browser-based tool that migrates Clipper/FoxPro data to a new platform, normalizing company names, inferring provinces from postal codes and detecting brands.</p><span class="tech">JavaScript · DBF</span></div>
+      <div class="row"><h3><span data-l="es" lang="es">Integración con AFIP/ARCA</span><span data-l="en" lang="en">AFIP/ARCA integration</span></h3><p data-l="es" lang="es">Corrección de la condición de IVA de unos 1.800 clientes consultando el webservice oficial con certificado digital.</p><p data-l="en" lang="en">Corrected the VAT status of about 1,800 customers by querying the Argentine tax authority web service with a digital certificate.</p><span class="tech">Python · SOAP</span></div>
+      <div class="row"><h3><span data-l="es" lang="es">Conciliación de MercadoLibre</span><span data-l="en" lang="en">MercadoLibre reconciliation</span></h3><p data-l="es" lang="es">Reportes mensuales con detalle por venta, netos sin IVA y márgenes vinculados al tipo de cambio.</p><p data-l="en" lang="en">Monthly reports with per-sale detail, net amounts before VAT and margins tied to the exchange rate.</p><span class="tech">Excel</span></div>
+      <div class="row"><h3><span data-l="es" lang="es">Generador de códigos EAN-13</span><span data-l="en" lang="en">EAN-13 barcode generator</span></h3><p data-l="es" lang="es">Genera e imprime códigos de barras para inventario, sin dependencias externas.</p><p data-l="en" lang="en">Generates and prints inventory barcodes, with no external dependencies.</p><span class="tech">HTML · JavaScript · canvas</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="habilidades">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow"><span data-l="es" lang="es">05 — Stack</span><span data-l="en" lang="en">05 — Stack</span></p><h2><span data-l="es" lang="es">Habilidades técnicas</span><span data-l="en" lang="en">Technical skills</span></h2></div>
+      <p data-l="es" lang="es">Las herramientas con las que trabajo hoy. Cuando un proyecto pide una que no conozco, la aprendo.</p><p data-l="en" lang="en">The tools I work with today. When a project calls for one I don't know, I learn it.</p>
+    </div>
+    <div class="skills reveal">
       <div><h4>Frontend</h4><ul><li>React</li><li>TypeScript</li><li>JavaScript</li><li>Tailwind</li></ul></div>
       <div><h4>Backend</h4><ul><li>Python</li><li>FastAPI</li><li>SQLAlchemy</li></ul></div>
       <div><h4><span data-l="es" lang="es">Datos</span><span data-l="en" lang="en">Data</span></h4><ul><li>PostgreSQL</li><li>Supabase</li><li>PL/pgSQL</li></ul></div>
@@ -681,9 +699,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <section class="contact" id="contacto">
   <div class="wrap">
     <div class="reveal">
-      <p class="eyebrow"><span data-l="es" lang="es">05 — Contacto</span><span data-l="en" lang="en">05 — Contact</span></p>
+      <p class="eyebrow"><span data-l="es" lang="es">06 — Contacto</span><span data-l="en" lang="en">06 — Contact</span></p>
       <h2 data-l="es" lang="es">Disponible para entrevistas, en español o en inglés.</h2><h2 data-l="en" lang="en">Available for interviews, in English or Spanish.</h2>
       <div class="mail"><code>urendadiego@gmail.com</code><button type="button" class="btn copy"><span class="a"><span data-l="es" lang="es">Copiar email</span><span data-l="en" lang="en">Copy email</span></span><span class="b"><span data-l="es" lang="es">Copiado</span><span data-l="en" lang="en">Copied</span></span></button></div>
+      <p class="ats" data-l="es" lang="es">¿Tu sistema de selección pide texto plano? <a href="cv/CV_Diego_Urenda_ATS_ES.pdf" download>CV en versión ATS</a></p><p class="ats" data-l="en" lang="en">Does your applicant tracking system need plain text? <a href="cv/CV_Diego_Urenda_ATS_EN.pdf" download>ATS-friendly CV</a></p>
     </div>
     <div class="btns reveal" style="--d:.1s">
       <a class="btn primary" href="mailto:urendadiego@gmail.com"><span data-l="es" lang="es">Escribirme</span><span data-l="en" lang="en">Email me</span></a>
