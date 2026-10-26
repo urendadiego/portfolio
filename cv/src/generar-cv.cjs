@@ -8,13 +8,13 @@ const T={
   title:'Desarrollador de software full stack',
   contact:['+54 9 353 427-5207','urendadiego@gmail.com','linkedin.com/in/diegourenda','github.com/urendadiego','urendadiego.github.io/portfolio','Villa María, Córdoba, Argentina'],
   h:{contact:'Contacto',profile:'Perfil',exp:'Experiencia',academic:'Proyecto académico',skills:'Habilidades técnicas',tech:'Tecnologías',edu:'Educación',cert:'Certificaciones',lang:'Idiomas'},
-  profile:'Desarrollador de software full stack, con tres aplicaciones en uso diario en la empresa donde trabajo. Me motivan los problemas que todavía no sé resolver: estudio lo que haga falta, lo aplico y lo sostengo en producción. Soy constante y paciente con los problemas difíciles. Diez años de atención al público me enseñaron a escuchar, a mantener la calma y a explicar lo técnico con claridad. Uso Claude Code como herramienta central y reviso y verifico cada cambio.',
+  profile:'Tengo tres aplicaciones en uso diario en la empresa donde trabajo. Me motivan los problemas que todavía no sé resolver: aprendo lo que haga falta, lo aplico y lo sostengo en producción, con constancia y paciencia cuando el problema es difícil. Diez años de atención al público me enseñaron a escuchar, a mantener la calma y a explicar lo técnico con claridad.',
   jobs:[
    {role:'Desarrollador de software (autónomo)',where:'Para Delmar Calefacción S.A.S.',when:'Dic. 2025 – actualidad',items:[
     '<b>Warma:</b> digitalización del cálculo térmico que la empresa hacía en papel desde hace más de 40 años. Diseñar una instalación pasó de 3–4 horas a 1 hora, y ya se usó en más de 50 proyectos.',
     '<b>Nexo Delmar:</b> stock, precios y ventas de MercadoLibre y Tienda Nube (~300 productos) reunidos en un solo lugar, en reemplazo de los recuentos manuales de inventario.',
     '<b>Caldera Care:</b> gestión del servicio técnico, que atiende de 10 a 15 clientes por día. Por primera vez la empresa puede medir el trabajo de cada técnico.',
-    'Cada proyecto requirió aprender algo nuevo (integraciones con marketplaces, geometría de planos, webhooks) y llevarlo a producción. También: migración de un sistema legacy y corrección de los datos fiscales de ~1.800 clientes con AFIP.',
+    'También: migración de un sistema legacy (Clipper/FoxPro) y corrección de la condición de IVA de ~1.800 clientes con el webservice de AFIP.',
     'Desarrollo con Claude Code: planifico, acoto las tareas del agente, reviso cada cambio y lo verifico con pruebas y en la aplicación funcionando.']},
    {role:'Ventas técnicas y servicio técnico',where:'Delmar Calefacción S.A.S. · Villa María',when:'Jun. 2025 – actualidad',items:[
     'Diseño y venta de sistemas de calefacción central, desde el cálculo de la instalación hasta el presupuesto.',
@@ -23,9 +23,9 @@ const T={
    {role:'Playero',where:'Estación de servicio Shell',when:'2015 – 2025',items:[
     'Diez años de atención al público y caja, resolviendo problemas en el momento y muchas veces bajo presión.',
     'Soporte informático del punto de venta.']}],
-  academic:{name:'Monix: homebanking web y Android',meta:'Práctica Profesionalizante I · en equipo · monix-homebanking.vercel.app',text:'Homebanking hecho en equipo, conectado a un Banco Central simulado: transferencias, préstamos y pagos por QR, NFC y Bluetooth.'},
-  skillsAts:[['Lenguajes','TypeScript, JavaScript, Python, SQL'],['Frontend','React, Vite, Tailwind CSS'],['Backend','FastAPI, SQLAlchemy, APIs REST'],['Bases de datos','PostgreSQL, Supabase, PL/pgSQL'],['Integraciones','OAuth 2.0, webhooks, MercadoLibre, Tienda Nube, AFIP'],['Herramientas','Git, GitHub, Vercel, Render, Linux'],['Desarrollo con IA','Claude Code, agentes de IA'],['Calidad','pruebas automatizadas (Vitest, pytest), code review'],['Uso académico','Node.js, Express, Docker']],
-  skillsSide:[['Desarrollo','React, TypeScript, Python, FastAPI'],['Datos','PostgreSQL, Supabase, PL/pgSQL'],['Con IA','Claude Code, agentes de IA'],['Herramientas','Git, Vercel, Render, Linux'],['Uso académico','Node.js, Express, Docker']],
+  academic:{name:'Monix: homebanking web y Android',meta:'Práctica Profesionalizante I · en equipo · monix-homebanking.vercel.app',text:'Homebanking hecho en equipo, conectado a un Banco Central simulado: cuentas en pesos y dólares, transferencias (también por Bluetooth), préstamos y pagos por QR y NFC.'},
+  skillsAts:[['Lenguajes','TypeScript, JavaScript, Python, SQL'],['Frontend','React, Vite, Tailwind CSS'],['Backend','FastAPI, SQLAlchemy, APIs REST'],['Bases de datos','PostgreSQL, Supabase, PL/pgSQL'],['Integraciones','OAuth 2.0, webhooks, MercadoLibre, Tienda Nube, AFIP'],['Herramientas','Git, GitHub, Vercel, Render, Linux'],['Desarrollo con IA','Claude Code, agentes de IA, Lovable'],['Calidad','pruebas automatizadas (Vitest, pytest), code review'],['Uso académico','Node.js, Express, Docker']],
+  skillsSide:[['Desarrollo','React, TypeScript, Python, FastAPI'],['Datos','PostgreSQL, Supabase, PL/pgSQL'],['Con IA','Claude Code, agentes de IA, Lovable'],['Herramientas','Git, Vercel, Render, Linux'],['Calidad','Vitest, pytest, code review'],['Uso académico','Node.js, Express, Docker']],
   edu:[['Analista en Sistemas de Computación','Instituto Leibnitz','2025 – 2027 (previsto)'],['Bachiller en Informática','Instituto La Santísima Trinidad','2010 – 2016']],
   cert:[['Linux nivel inicial','Instituto Leibnitz · 2026'],['EF SET English Certificate (C2)','EF · 2021 · efset.org/cert/JsXiSg']],
   langs:['Español: nativo','Inglés: C2 (EF SET 77/100)']
@@ -34,13 +34,13 @@ const T={
   title:'Full-Stack Software Developer',
   contact:['+54 9 353 427-5207','urendadiego@gmail.com','linkedin.com/in/diegourenda','github.com/urendadiego','urendadiego.github.io/portfolio','Villa María, Córdoba, Argentina'],
   h:{contact:'Contact',profile:'Profile',exp:'Experience',academic:'Academic project',skills:'Technical skills',tech:'Technologies',edu:'Education',cert:'Certifications',lang:'Languages'},
-  profile:'Full-stack software developer with three applications in daily use at the company where I work. I\'m drawn to problems I don\'t yet know how to solve: I learn what\'s needed, apply it and keep it running in production. I\'m persistent and patient with hard problems, and ten years of customer-facing work taught me to listen, stay calm and explain technical things clearly. I use Claude Code as my core tool, and I review and verify every change.',
+  profile:'I have three applications in daily use at the company where I work. I\'m driven by problems I don\'t yet know how to solve: I learn what\'s needed, apply it and keep it running in production, with persistence and patience when the problem is hard. Ten years of customer-facing work taught me to listen, stay calm and explain technical things clearly.',
   jobs:[
    {role:'Software Developer (self-employed)',where:'For Delmar Calefacción S.A.S.',when:'Dec 2025 – present',items:[
     '<b>Warma:</b> digitized the heating load calculation the company had done on paper for over 40 years. Designing an installation went from 3–4 hours to 1 hour, across 50+ projects so far.',
     '<b>Nexo Delmar:</b> brought stock, prices and sales from MercadoLibre and Tienda Nube (~300 products) into one place, replacing manual inventory counts.',
     '<b>Caldera Care:</b> operations management for the technical service team, which handles 10 to 15 customers a day. For the first time, the company can measure each technician\'s work.',
-    'Each project required learning something new (marketplace integrations, floor-plan geometry, webhooks) and taking it to production. Also migrated a legacy system and corrected the tax data of ~1,800 customers against the Argentine tax authority.',
+    'Also migrated a legacy Clipper/FoxPro system and corrected the VAT status of ~1,800 customers through the Argentine tax authority (AFIP) web service.',
     'I build with Claude Code: I plan, scope the agent\'s tasks, review every change, and verify it with tests and in the running app.']},
    {role:'Technical Sales and Service',where:'Delmar Calefacción S.A.S. · Villa María',when:'Jun 2025 – present',items:[
     'Design and sale of central heating systems, from installation sizing to the final quote.',
@@ -49,9 +49,9 @@ const T={
    {role:'Service Station Attendant',where:'Shell service station',when:'2015 – 2025',items:[
     'Ten years of customer service and cash handling, solving problems on the spot and often under pressure.',
     'IT support for the point of sale.']}],
-  academic:{name:'Monix: web and Android home banking app',meta:'Professional Practice I · team project · monix-homebanking.vercel.app',text:'Team-built home banking app connected to a simulated Central Bank: transfers, loans, and QR, NFC and Bluetooth payments.'},
-  skillsAts:[['Languages','TypeScript, JavaScript, Python, SQL'],['Frontend','React, Vite, Tailwind CSS'],['Backend','FastAPI, SQLAlchemy, REST APIs'],['Databases','PostgreSQL, Supabase, PL/pgSQL'],['Integrations','OAuth 2.0, webhooks, MercadoLibre, Tienda Nube, AFIP'],['Tools','Git, GitHub, Vercel, Render, Linux'],['AI-assisted development','Claude Code, AI agents'],['Quality','automated testing (Vitest, pytest), code review'],['Academic use','Node.js, Express, Docker']],
-  skillsSide:[['Development','React, TypeScript, Python, FastAPI'],['Data','PostgreSQL, Supabase, PL/pgSQL'],['With AI','Claude Code, AI agents'],['Tools','Git, Vercel, Render, Linux'],['Academic use','Node.js, Express, Docker']],
+  academic:{name:'Monix: web and Android home banking app',meta:'Professional Practice I · team project · monix-homebanking.vercel.app',text:'Team-built home banking app connected to a simulated Central Bank: peso and dollar accounts, transfers (including over Bluetooth), loans, and QR and NFC payments.'},
+  skillsAts:[['Languages','TypeScript, JavaScript, Python, SQL'],['Frontend','React, Vite, Tailwind CSS'],['Backend','FastAPI, SQLAlchemy, REST APIs'],['Databases','PostgreSQL, Supabase, PL/pgSQL'],['Integrations','OAuth 2.0, webhooks, MercadoLibre, Tienda Nube, AFIP'],['Tools','Git, GitHub, Vercel, Render, Linux'],['AI-assisted development','Claude Code, AI agents, Lovable'],['Quality','automated testing (Vitest, pytest), code review'],['Academic use','Node.js, Express, Docker']],
+  skillsSide:[['Development','React, TypeScript, Python, FastAPI'],['Data','PostgreSQL, Supabase, PL/pgSQL'],['With AI','Claude Code, AI agents, Lovable'],['Tools','Git, Vercel, Render, Linux'],['Quality','Vitest, pytest, code review'],['Academic use','Node.js, Express, Docker']],
   edu:[['Computer Systems Analyst','Instituto Leibnitz','2025 – 2027 (expected)'],['High school diploma, Computer Science track','Instituto La Santísima Trinidad','2010 – 2016']],
   cert:[['Linux, beginner level','Instituto Leibnitz · 2026'],['EF SET English Certificate (C2)','EF · 2021 · efset.org/cert/JsXiSg']],
   langs:['Spanish: native','English: C2 (EF SET 77/100)']
