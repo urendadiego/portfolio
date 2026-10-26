@@ -11,9 +11,9 @@ const T={
   profile:'Tengo tres aplicaciones en uso diario en la empresa donde trabajo. Me motivan los problemas que todavía no sé resolver: aprendo lo que haga falta, lo aplico y lo sostengo en producción, con constancia y paciencia cuando el problema es difícil. Diez años de atención al público me enseñaron a escuchar, a mantener la calma y a explicar lo técnico con claridad.',
   jobs:[
    {role:'Desarrollador de software (autónomo)',where:'Para Delmar Calefacción S.A.S.',when:'Dic. 2025 – actualidad',items:[
-    '<b>Warma:</b> digitalización del cálculo térmico que la empresa hacía en papel desde hace más de 40 años. Diseñar una instalación pasó de 3–4 horas a 1 hora, y ya se usó en más de 50 proyectos.',
-    '<b>Nexo Delmar:</b> stock, precios y ventas de MercadoLibre y Tienda Nube (~300 productos) reunidos en un solo lugar, en reemplazo de los recuentos manuales de inventario.',
-    '<b>Caldera Care:</b> gestión del servicio técnico, que atiende de 10 a 15 clientes por día. Por primera vez la empresa puede medir el trabajo de cada técnico.',
+    '<b><a class="demo" href="https://calculadora-termica.vercel.app/demo">Warma</a>:</b> digitalización del cálculo térmico que la empresa hacía en papel desde hace más de 40 años. Diseñar una instalación pasó de 3–4 horas a 1 hora, y ya se usó en más de 50 proyectos.',
+    '<b><a class="demo" href="https://nexodelmar.vercel.app/demo">Nexo Delmar</a>:</b> stock, precios y ventas de MercadoLibre y Tienda Nube (~300 productos) reunidos en un solo lugar, en reemplazo de los recuentos manuales de inventario.',
+    '<b><a class="demo" href="https://caldera-care.lovable.app/demo">Caldera Care</a>:</b> gestión del servicio técnico, que atiende de 10 a 15 clientes por día. Por primera vez la empresa puede medir el trabajo de cada técnico.',
     'También: migración de un sistema legacy (Clipper/FoxPro) y corrección de la condición de IVA de ~1.800 clientes con el webservice de AFIP.',
     'Desarrollo con Claude Code: planifico, acoto las tareas del agente, reviso cada cambio y lo verifico con pruebas y en la aplicación funcionando.']},
    {role:'Ventas técnicas y servicio técnico',where:'Delmar Calefacción S.A.S. · Villa María',when:'Jun. 2025 – actualidad',items:[
@@ -37,9 +37,9 @@ const T={
   profile:'I have three applications in daily use at the company where I work. I\'m driven by problems I don\'t yet know how to solve: I learn what\'s needed, apply it and keep it running in production, with persistence and patience when the problem is hard. Ten years of customer-facing work taught me to listen, stay calm and explain technical things clearly.',
   jobs:[
    {role:'Software Developer (self-employed)',where:'For Delmar Calefacción S.A.S.',when:'Dec 2025 – present',items:[
-    '<b>Warma:</b> digitized the heating load calculation the company had done on paper for over 40 years. Designing an installation went from 3–4 hours to 1 hour, across 50+ projects so far.',
-    '<b>Nexo Delmar:</b> brought stock, prices and sales from MercadoLibre and Tienda Nube (~300 products) into one place, replacing manual inventory counts.',
-    '<b>Caldera Care:</b> operations management for the technical service team, which handles 10 to 15 customers a day. For the first time, the company can measure each technician\'s work.',
+    '<b><a class="demo" href="https://calculadora-termica.vercel.app/demo">Warma</a>:</b> digitized the heating load calculation the company had done on paper for over 40 years. Designing an installation went from 3–4 hours to 1 hour, across 50+ projects so far.',
+    '<b><a class="demo" href="https://nexodelmar.vercel.app/demo">Nexo Delmar</a>:</b> brought stock, prices and sales from MercadoLibre and Tienda Nube (~300 products) into one place, replacing manual inventory counts.',
+    '<b><a class="demo" href="https://caldera-care.lovable.app/demo">Caldera Care</a>:</b> operations management for the technical service team, which handles 10 to 15 customers a day. For the first time, the company can measure each technician\'s work.',
     'Also migrated a legacy Clipper/FoxPro system and corrected the VAT status of ~1,800 customers through the Argentine tax authority (AFIP) web service.',
     'I build with Claude Code: I plan, scope the agent\'s tasks, review every change, and verify it with tests and in the running app.']},
    {role:'Technical Sales and Service',where:'Delmar Calefacción S.A.S. · Villa María',when:'Jun 2025 – present',items:[
@@ -58,7 +58,12 @@ const T={
  }
 };
 
-const font='<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">';
+const font='<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"><style>a{color:inherit;text-decoration:none} a.demo{text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:#C2700F;text-underline-offset:2px}</style>';
+// Convierte email, teléfono y dominios del texto en links clicables del PDF.
+const lk=x=>/^\S+@\S+$/.test(x)?'<a href="mailto:'+x+'">'+x+'</a>'
+  :/^\+[\d -]+$/.test(x)?'<a href="tel:'+x.replace(/[^+\d]/g,'')+'">'+x+'</a>'
+  :x.replace(/\b((?:[a-z0-9-]+\.)+(?:com|app|io|org)(?:\/[\w\/-]*)?)/gi,'<a href="https://$1">$1</a>');
+console.assert(lk('github.com/urendadiego')==='<a href="https://github.com/urendadiego">github.com/urendadiego</a>' && lk('urendadiego@gmail.com').startsWith('<a href="mailto:') && lk('+54 9 353 427-5207').includes('tel:+5493534275207'),'lk');
 const jobs=t=>t.jobs.map(j=>`<div class="job"><div class="jh"><b>${j.role}</b></div><div class="meta">${j.where} · ${j.when}</div><ul>${j.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>`).join('');
 
 function designed(l){const t=T[l];return `<!doctype html><html lang="${l}"><head><meta charset="utf-8"><title>CV Diego Urenda (${l.toUpperCase()})</title>${font}<style>
@@ -87,17 +92,17 @@ p.profile{margin:0}
 </style></head><body><div class="page">
 <aside>
 <img class="photo" src="../../img/diego.webp" alt="">
-<h2>${t.h.contact}</h2><ul>${t.contact.map(c=>`<li>${c}</li>`).join('')}</ul>
+<h2>${t.h.contact}</h2><ul>${t.contact.map(c=>`<li>${lk(c)}</li>`).join('')}</ul>
 <h2>${t.h.tech}</h2>${t.skillsSide.map(([k,v])=>`<p class="k">${k}</p><p>${v}</p>`).join('')}
 <h2>${t.h.lang}</h2>${t.langs.map(x=>`<p>${x}</p>`).join('')}
 <h2>${t.h.edu}</h2>${t.edu.map(([a,b,c])=>`<p class="k">${a}</p><p>${b}</p><p class="d">${c}</p>`).join('')}
-<h2>${t.h.cert}</h2>${t.cert.map(([a,b])=>`<p class="k">${a}</p><p class="d">${b}</p>`).join('')}
+<h2>${t.h.cert}</h2>${t.cert.map(([a,b])=>`<p class="k">${a}</p><p class="d">${lk(b)}</p>`).join('')}
 </aside>
 <main>
 <h1>Diego Agustín Urenda</h1><p class="sub">${t.title}</p>
 <h2>${t.h.profile}</h2><p class="profile">${t.profile}</p>
 <h2>${t.h.exp}</h2>${jobs(t)}
-<h2>${t.h.academic}</h2><div class="job"><div class="jh"><b>${t.academic.name}</b></div><div class="meta">${t.academic.meta}</div><p style="margin:0">${t.academic.text}</p></div>
+<h2>${t.h.academic}</h2><div class="job"><div class="jh"><b>${t.academic.name}</b></div><div class="meta">${lk(t.academic.meta)}</div><p style="margin:0">${t.academic.text}</p></div>
 </main></div></body></html>`}
 
 function ats(l){const t=T[l];return `<!doctype html><html lang="${l}"><head><meta charset="utf-8"><title>CV Diego Urenda ATS (${l.toUpperCase()})</title>${font}<style>
@@ -115,14 +120,14 @@ li{margin-bottom:.3mm}
 p{margin:0}
 </style></head><body>
 <h1>Diego Agustín Urenda</h1><p class="sub">${t.title}</p>
-<p class="contact">${t.contact.slice(0,2).join(' | ')} | ${t.contact[5]}</p>
-<p class="contact">${t.contact.slice(2,5).join(' | ')}</p>
+<p class="contact">${t.contact.slice(0,2).map(lk).join(' | ')} | ${t.contact[5]}</p>
+<p class="contact">${t.contact.slice(2,5).map(lk).join(' | ')}</p>
 <h2>${t.h.profile}</h2><p>${t.profile}</p>
 <h2>${t.h.exp}</h2>${jobs(t)}
-<h2>${t.h.academic}</h2><div class="job"><b>${t.academic.name}</b><div class="meta">${t.academic.meta}</div><p>${t.academic.text}</p></div>
+<h2>${t.h.academic}</h2><div class="job"><b>${t.academic.name}</b><div class="meta">${lk(t.academic.meta)}</div><p>${t.academic.text}</p></div>
 <h2>${t.h.skills}</h2><div class="sk">${t.skillsAts.reduce((acc,x,i)=>{if(i%2===0)acc.push([x]);else acc[acc.length-1].push(x);return acc},[]).map(g=>'<p>'+g.map(([k,v])=>'<b>'+k+':</b> '+v).join(' · ')+'</p>').join('')}</div>
 <h2>${t.h.edu}</h2>${t.edu.map(([a,b,c])=>`<p><b>${a}</b> | ${b} | ${c}</p>`).join('')}
-<h2>${t.h.cert}</h2>${t.cert.map(([a,b])=>`<p>${a} | ${b}</p>`).join('')}
+<h2>${t.h.cert}</h2>${t.cert.map(([a,b])=>`<p>${a} | ${lk(b)}</p>`).join('')}
 <h2>${t.h.lang}</h2><p>${t.langs.join('. ')}.</p>
 </body></html>`}
 
@@ -140,7 +145,7 @@ p{margin:0}
     const over=await p.evaluate(()=>{const pg=document.querySelector('.page');return pg?[pg.scrollHeight,pg.clientHeight,document.querySelector('aside').scrollHeight,document.querySelector('main').scrollHeight]:null});
     const out=path.join(repo,'cv',name+'.pdf');
     await p.pdf({path:out,format:'A4',printBackground:true,preferCSSPageSize:true});
-    await p.setViewport({width:794,height:1123,deviceScaleFactor:1.3}); await p.screenshot({path:path.join(process.cwd(),'cvprev-'+name+'.png'),fullPage:true});
+    await p.setViewport({width:794,height:1123,deviceScaleFactor:1.3}); await p.screenshot({path:path.join(require('os').tmpdir(),'cvprev-'+name+'.png'),fullPage:true});
     const pages=(fs.readFileSync(out,'latin1').match(/\/Type\s*\/Page[^s]/g)||[]).length;
     console.log(name,'pages:',pages,'overflow(page,client,aside,main):',over);
     await p.close();
